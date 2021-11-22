@@ -25,25 +25,6 @@ app.post('/users', (req, res) => {
   });
 })
 
-app.post('/payments', (req, res) => {
-  console.log('----payments payment req----');
-  console.log(req.body);
-  const charitiesId = req?.body?.charitiesId || 'testddd';
-  console.log('charitiesId : ' + charitiesId);
-  const payload ={
-    charitiesId,
-  };
-  console.log(
-    'payload',payload);
-  axios.post('http://localhost:3001/payments' , payload).then(usrRes => {
-    console.log('usrRes');
-    console.log(usrRes.data);
-    res.send(usrRes.data);
-  }).catch(err => {
-    console.log(err); 
-  });
-})
-
 app.post('/products', (req, res) => {
   const payload = req.body;
   const firstname = _.get(req, ['body', 'firstName'], '-') || '-';
@@ -55,6 +36,7 @@ app.post('/products', (req, res) => {
     const { quotationProductList, modalRatesList } = productRes.data
     let priceList = {};
     _.map(modalRatesList, (modal) => {
+      console.log('=====modal', modal);
       priceList[modal.paymentFrequencyCd] = {
         modalPremium: modal.modalPremium,
         annualizedModalPremium: modal.annualizedModalPremium
