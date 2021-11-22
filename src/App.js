@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert, Container, Card, Spinner } from 'react-bootstrap';
 import { get } from 'lodash';
-import SumForm from './components/sum-form';
+import SumForm from './components/sum-form/sum-form';
 import { Header } from './components/styles/template';
 import { getPlanName, getPaymentFrequency } from './shared/index'; 
 import './style/common.css';
