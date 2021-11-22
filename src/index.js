@@ -7,6 +7,7 @@ import commonReducer from './reducers/common-reducer';
 import  productReducer from './reducers/product-reducer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-calendar/dist/Calendar.css';
+import './style/common.css';
 
 import App from './App';
 

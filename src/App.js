@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import SumForm from './components/sum-form/sum-form';
 import { Header } from './components/styles/template';
 import { getPlanName, getPaymentFrequency } from './shared/index'; 
-import './style/common.css';
+
 
 
 export default connect((state) => state)(
@@ -18,7 +18,7 @@ export default connect((state) => state)(
       };
     }
 
-    renderAlert = (msg, warningMsg) => {
+    renderAlert = (msg) => {
       if (msg !== '') {
         return (<Alert variant='danger'> {msg} </Alert>)
       } 
@@ -26,8 +26,9 @@ export default connect((state) => state)(
       return null;
     }
 
-    displayProduct = (productCards) => {
-      const {productReducer : {isShowloading, products}} = this.props;
+    displayProduct = () => {
+      const isShowloading = get(this.props, ['productReducer', 'isShowloading']) || false;
+      const products = get(this.props, ['productReducer', 'products']) || [];
 
       if(isShowloading === false) {
         if(products.length === 0) {
@@ -80,12 +81,14 @@ export default connect((state) => state)(
 
 
     render() {
-      const {commonReducer : {message, warningMessage}} = this.props;
-      const {productReducer : {isShowloading}} = this.props;
+      const message = get(this.props, ['commonReducer', 'message']) || '';
+      console.log('message',message);
+      const isShowloading = get(this.props, ['productReducer', 'isShowloading']) || false;
+      // const {productReducer : {isShowloading}} = this.props;
 
       return (
         <div>
-          {this.renderAlert(message, warningMessage)}
+          {this.renderAlert(message)}
           <Header>FWD React</Header>
           <Container>
             <SumForm />

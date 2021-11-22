@@ -104,8 +104,7 @@ class SumForm extends Component {
   }
 
   render() {
-    const {index, item} = this.props;
-    const { isShowOverlay, selectedDate, firstName, sex, plan, frequency, planPrice, isSubmited } = this.state;
+    const { selectedDate, sex, frequency, planPrice, isSubmited } = this.state;
 
     return (
       <Form>
@@ -125,11 +124,10 @@ class SumForm extends Component {
         <Form.Group className="mb-3" controlId="formFrequency">
           <Row>
             <Col>
-              <Form.Label className="label-form">Plan</Form.Label>
+              <Form.Label className="label-form">Insurance plan</Form.Label>
               <Form.Select
                 onChange={(e) => this.setFormValue('plan',  e.target.value)}
               aria-label="Insurance Plan">
-                <option>Open this select insurance plan</option>
                 <option defaultValue="selected" value="T11A20">Package 1 (benefit 200k)</option>
                 <option value="T11A50">Package 2 (benefit 500k)</option>
                 <option value="T11AM1">Package 3 (benefit 1M)</option>
@@ -141,7 +139,6 @@ class SumForm extends Component {
                 isInvalid={ frequency === '' }
                 aria-label="Payment Frequency" 
                 onChange={(e) => this.setFormValue('frequency',  e.target.value)}>
-                <option>Payment Frequency</option>
                 <option defaultValue="selected" value="YEARLY">YEARLY</option>
                 <option value="HALFYEARLY">HALFYEARLY</option>
                 <option value="QUARTERLY">QUARTERLY</option>
