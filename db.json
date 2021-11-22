@@ -1,0 +1,10 @@
+{
+  "userproducts": [
+    {
+      "id": 1,
+      "firstname": "f1",
+      "lastname": "l1",
+      "productId": "productIdxx"
+    }
+  ]
+}
