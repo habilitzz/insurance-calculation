@@ -3,7 +3,7 @@ small insurance project
 
 
 # To run all ENV
-npm install && npm run dev
+npm install && npm run all
 
 
 # To test
